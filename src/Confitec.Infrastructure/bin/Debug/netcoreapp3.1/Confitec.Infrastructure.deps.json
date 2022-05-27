@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Confitec.Infrastructure/1.0.0": {
+        "runtime": {
+          "Confitec.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Confitec.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

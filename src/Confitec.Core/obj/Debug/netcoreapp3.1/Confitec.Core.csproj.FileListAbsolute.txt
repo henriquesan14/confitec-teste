@@ -1,0 +1,10 @@
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\bin\Debug\netcoreapp3.1\Confitec.Core.deps.json
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\bin\Debug\netcoreapp3.1\Confitec.Core.dll
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\bin\Debug\netcoreapp3.1\Confitec.Core.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.csproj.AssemblyReference.cache
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.AssemblyInfoInputs.cache
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.AssemblyInfo.cs
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.dll
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Core\obj\Debug\netcoreapp3.1\Confitec.Core.pdb
