@@ -8,3 +8,8 @@ C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\obj\Debug\netcoreapp3.1\
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\obj\Debug\netcoreapp3.1\Confitec.Application.csproj.CoreCompileInputs.cache
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\obj\Debug\netcoreapp3.1\Confitec.Application.dll
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\obj\Debug\netcoreapp3.1\Confitec.Application.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\bin\Debug\netcoreapp3.1\Confitec.Core.dll
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\bin\Debug\netcoreapp3.1\Confitec.Infrastructure.dll
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\bin\Debug\netcoreapp3.1\Confitec.Infrastructure.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\bin\Debug\netcoreapp3.1\Confitec.Core.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Application\obj\Debug\netcoreapp3.1\Confitec.Application.csproj.CopyComplete

@@ -4,9 +4,9 @@ using System;
 
 namespace Confitec.Application.Validators
 {
-    public class CadastrarUsuarioValidator : AbstractValidator<CadastrarUsuarioCommand>
+    public class CadastrarUsuarioCommandValidator : AbstractValidator<CadastrarUsuarioCommand>
     {
-        public CadastrarUsuarioValidator()
+        public CadastrarUsuarioCommandValidator()
         {
             RuleFor(p => p.Nome)
                 .NotEmpty()

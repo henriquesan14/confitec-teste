@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Confitec.Infrastructure.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity, new()
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly ConfitecContext _context;
         private readonly DbSet<TEntity> _entity;

@@ -7,3 +7,10 @@ C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.dll
 C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\bin\Debug\netcoreapp3.1\Confitec.Infrastructure.runtimeconfig.json
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\bin\Debug\netcoreapp3.1\Confitec.Infrastructure.runtimeconfig.dev.json
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\bin\Debug\netcoreapp3.1\Confitec.Core.dll
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\bin\Debug\netcoreapp3.1\Confitec.Core.pdb
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.csproj.CopyComplete
+C:\Users\Jose\Desktop\Confitec\src\Confitec.Infrastructure\obj\Debug\netcoreapp3.1\Confitec.Infrastructure.genruntimeconfig.cache
