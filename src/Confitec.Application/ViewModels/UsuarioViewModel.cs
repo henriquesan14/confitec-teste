@@ -1,11 +1,11 @@
 ﻿using Confitec.Core.Enums;
 using System;
 
-namespace Confitec.Core.Entities
+namespace Confitec.Application.ViewModels
 {
-    public class Usuario : BaseEntity
+    public class UsuarioViewModel
     {
-        public Usuario(string nome, string sobrenome, string email, DateTime dataNascimento, EscolaridadeEnum escolaridade)
+        public UsuarioViewModel(string nome, string sobrenome, string email, DateTime dataNascimento, EscolaridadeEnum escolaridade)
         {
             Nome = nome;
             Sobrenome = sobrenome;
