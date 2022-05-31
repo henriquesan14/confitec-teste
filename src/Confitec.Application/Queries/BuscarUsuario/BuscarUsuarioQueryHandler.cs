@@ -1,4 +1,5 @@
-﻿using Confitec.Application.ViewModels;
+﻿using AutoMapper;
+using Confitec.Application.ViewModels;
 using Confitec.Core.Repositories;
 using MediatR;
 using System.Threading;
@@ -9,9 +10,11 @@ namespace Confitec.Application.Queries.BuscarUsuario
     public class BuscarUsuarioQueryHandler : IRequestHandler<BuscarUsuarioQuery, UsuarioViewModel>
     {
         private readonly IUsuarioRepository _userRepository;
-        public BuscarUsuarioQueryHandler(IUsuarioRepository userRepository)
+        private readonly IMapper _mapper;
+        public BuscarUsuarioQueryHandler(IUsuarioRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         public async Task<UsuarioViewModel> Handle(BuscarUsuarioQuery request, CancellationToken cancellationToken)
@@ -22,8 +25,7 @@ namespace Confitec.Application.Queries.BuscarUsuario
             {
                 return null;
             }
-
-            return new UsuarioViewModel(user.Id, user.Nome, user.Sobrenome, user.Email, user.DataNascimento, user.Escolaridade, user.CriadoEm, user.AtualizadoEm);
+            return _mapper.Map<UsuarioViewModel>(user);
         }
     }
 }

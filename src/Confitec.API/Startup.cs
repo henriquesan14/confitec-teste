@@ -1,6 +1,8 @@
+using AutoMapper;
 using Confitec.API.Extensions;
 using Confitec.API.Filters;
 using Confitec.Application.Commands.CadastrarUsuario;
+using Confitec.Application.Mappers;
 using Confitec.Application.Validators;
 using Confitec.Infrastructure.Context;
 using FluentValidation.AspNetCore;
@@ -28,6 +30,13 @@ namespace Confitec.API
         {
             var connectionString = Configuration.GetConnectionString("DbConnection");
             services.AddDbContext<ConfitecContext>(options => options.UseSqlServer(connectionString));
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<UsuarioMapper>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddInfrastructure();
 

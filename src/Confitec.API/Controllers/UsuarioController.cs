@@ -1,5 +1,6 @@
 ﻿using Confitec.Application.Commands.AtualizarUsuario;
 using Confitec.Application.Commands.CadastrarUsuario;
+using Confitec.Application.Commands.RemoverUsuario;
 using Confitec.Application.Queries.BuscarTodosUsuarios;
 using Confitec.Application.Queries.BuscarUsuario;
 using Confitec.Application.ViewModels.Page;
@@ -53,15 +54,24 @@ namespace Confitec.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Atualizar([FromBody] AtualizarUsuarioCommand command)
         {
-            var query = new BuscarUsuarioQuery(command.Id);
-            var user = await _mediator.Send(query);
-
-            if (user == null)
+            var result = await _mediator.Send(command);
+            if(result == 0)
             {
                 return NotFound();
             }
-            await _mediator.Send(command);
-            return Ok(command);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Remover(int id)
+        {
+            var command = new RemoverUsuarioCommand(id);
+            var result = await _mediator.Send(command);
+            if (result == 0)
+            {
+                return NotFound();
+            }
+            return NoContent();
         }
     }
 }

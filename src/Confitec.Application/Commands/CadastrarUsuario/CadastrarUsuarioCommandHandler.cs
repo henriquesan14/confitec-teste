@@ -1,4 +1,5 @@
-﻿using Confitec.Core.Entities;
+﻿using AutoMapper;
+using Confitec.Core.Entities;
 using Confitec.Core.Repositories;
 using MediatR;
 using System.Threading;
@@ -10,15 +11,17 @@ namespace Confitec.Application.Commands.CadastrarUsuario
     {
 
         private readonly IUsuarioRepository _repository;
+        private readonly IMapper _mapper;
 
-        public CadastrarUsuarioCommandHandler(IUsuarioRepository repository)
+        public CadastrarUsuarioCommandHandler(IUsuarioRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public async Task<int> Handle(CadastrarUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var user = new Usuario(request.Nome, request.Sobrenome, request.Email, request.DataNascimento, request.Escolaridade);
+            var user = _mapper.Map<Usuario>(request);
             await _repository.AdicionarAsync(user);
             return user.Id;
         }

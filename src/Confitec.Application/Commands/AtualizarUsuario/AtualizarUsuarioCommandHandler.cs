@@ -1,4 +1,4 @@
-﻿using Confitec.Core.Entities;
+﻿using AutoMapper;
 using Confitec.Core.Repositories;
 using MediatR;
 using System.Threading;
@@ -9,16 +9,23 @@ namespace Confitec.Application.Commands.AtualizarUsuario
     public class AtualizarUsuarioCommandHandler : IRequestHandler<AtualizarUsuarioCommand, int>
     {
         private readonly IUsuarioRepository _repository;
+        private readonly IMapper _mapper;
 
-        public AtualizarUsuarioCommandHandler(IUsuarioRepository repository)
+        public AtualizarUsuarioCommandHandler(IUsuarioRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public async Task<int> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var user = new Usuario(request.Id,request.Nome, request.Sobrenome, request.Email, request.DataNascimento, request.Escolaridade);
-            await _repository.AtualizarAsync(user);
+            var user = await _repository.BuscarPorIdAsync(request.Id);
+            if(user == null)
+            {
+                return 0;
+            }
+            var userUpdate = _mapper.Map(request, user);
+            await _repository.AtualizarAsync(userUpdate);
             return user.Id;
         }
     }
