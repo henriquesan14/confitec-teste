@@ -25,6 +25,7 @@ import { FormUsuarioComponent } from './components/form-usuario/form-usuario.com
 import { FormsModule } from '@angular/forms';
 import { CadastroUsuarioComponent } from './views/cadastro-usuario/cadastro-usuario.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AtualizarUsuarioComponent } from './views/atualizar-usuario/atualizar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     FormUsuarioComponent,
     CadastroUsuarioComponent,
     ConfirmDialogComponent,
+    AtualizarUsuarioComponent,
   ],
   imports: [
     FormsModule,

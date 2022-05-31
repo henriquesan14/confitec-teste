@@ -11,10 +11,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CadastroUsuarioComponent {
 
   usuario: Usuario = <Usuario>{};
-  constructor(private funcionarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   cadastrar(): void {
-    this.funcionarioService.create(this.usuario).subscribe(() => {
+    this.usuarioService.create(this.usuario).subscribe(() => {
       this.router.navigateByUrl('/');
     });
   }

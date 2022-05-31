@@ -4,6 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Usuario } from 'src/app/models/usuario';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/components/confirm-dialog/confirm-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -26,7 +27,7 @@ export class ListarUsuariosComponent implements OnInit {
   ];
   usuarioSelecionado!: number;
 
-  constructor(private service: UsuarioService, public dialog: MatDialog) {}
+  constructor(private service: UsuarioService, public dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {
     this.listarUsuarios();
@@ -61,6 +62,10 @@ export class ListarUsuariosComponent implements OnInit {
     this.service.delete(this.usuarioSelecionado).subscribe(() => {
       this.listarUsuarios();
     });
+  }
+
+  atualizarUsuario(id: number){
+    this.router.navigateByUrl(`/atualizar/${id}`);
   }
 
 }
