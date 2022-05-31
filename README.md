@@ -25,6 +25,7 @@ As seguintes padrões foram usados na construção do projeto:
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [.NET](https://dotnet.microsoft.com/en-us/), [Angular](https://dotnet.microsoft.com/en-us/).
+[SQLServer](https://www.microsoft.com/pt-br/sql-server/sql-server-2019) ou imagem utilizando o [Docker](https://www.docker.com/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) ou [Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/).
 Também é preciso configurar as váriaveis de conexão com banco de dados no arquivo `confitec-teste/src/Confitec.API/appsettings.json` e verificar qual URL e porta a API está rodando para apontar no arquivo `confitec-teste/src/confitec-webapp/src/environments/environment.ts`.
 
