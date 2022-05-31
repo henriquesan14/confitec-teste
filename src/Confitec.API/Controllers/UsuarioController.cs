@@ -1,6 +1,8 @@
 ﻿using Confitec.Application.Commands.AtualizarUsuario;
 using Confitec.Application.Commands.CadastrarUsuario;
+using Confitec.Application.Queries.BuscarTodosUsuarios;
 using Confitec.Application.Queries.BuscarUsuario;
+using Confitec.Application.ViewModels.Page;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -19,6 +21,14 @@ namespace Confitec.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> BuscarTodos([FromQuery] PageFilter pageFilter)
+        {
+            var query = new BuscarTodosUsuariosQuery(pageFilter);
+            var users = await _mediator.Send(query);
+            return Ok(users);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> BuscarPorId(int id)
         {
@@ -33,7 +43,7 @@ namespace Confitec.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CadastrarUsuarioCommand command)
+        public async Task<IActionResult> Cadastrar([FromBody] CadastrarUsuarioCommand command)
         {
             var id = await _mediator.Send(command);
 
@@ -41,7 +51,7 @@ namespace Confitec.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] AtualizarUsuarioCommand command)
+        public async Task<IActionResult> Atualizar([FromBody] AtualizarUsuarioCommand command)
         {
             var query = new BuscarUsuarioQuery(command.Id);
             var user = await _mediator.Send(query);

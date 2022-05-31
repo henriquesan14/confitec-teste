@@ -1,9 +1,6 @@
 ﻿using Confitec.Application.ViewModels;
 using Confitec.Core.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,7 +23,7 @@ namespace Confitec.Application.Queries.BuscarUsuario
                 return null;
             }
 
-            return new UsuarioViewModel(user.Nome, user.Sobrenome, user.Email, user.DataNascimento, user.Escolaridade);
+            return new UsuarioViewModel(user.Id, user.Nome, user.Sobrenome, user.Email, user.DataNascimento, user.Escolaridade, user.CriadoEm, user.AtualizadoEm);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Confitec.Core.Repositories
 {
     public interface IBaseRepository<TEntity> : IDisposable where TEntity : Entity
     {
-
         Task<IReadOnlyList<TEntity>> BuscarTodosAsync();
         Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate);
         Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate = null,

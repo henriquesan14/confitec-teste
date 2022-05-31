@@ -12,13 +12,11 @@ namespace Confitec.Infrastructure.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : Entity
     {
-        private readonly ConfitecContext _context;
-        private readonly DbSet<TEntity> _entity;
+        protected readonly ConfitecContext _context;
 
         public BaseRepository(ConfitecContext context)
         {
             _context = context;
-            _entity = context.Set<TEntity>();
         }
 
         public async Task<IReadOnlyList<TEntity>> BuscarTodosAsync()
