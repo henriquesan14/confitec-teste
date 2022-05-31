@@ -24,11 +24,11 @@ export class ListarUsuariosComponent implements OnInit {
 
   constructor(private service: UsuarioService) {}
 
-  ngOnInit(): void {  
-    this.usuarios = [
-      {id: 1, nome: "Teste", sobrenome: "Teste", email: "Teste@gmail.com", dataNascimento: "2022-01-31 00:00:00", escolaridade: "Infantil", criadoEm: "2022-01-31 00:00:00", atualizadoEm: "2022-01-31 00:00:00"}
-    ];
-    this.matT = new MatTableDataSource<Usuario>( this.usuarios );
+  ngOnInit(): void {
+    this.service.list().subscribe((response: any) => {
+        this.usuarios = response.items;
+        this.matT = new MatTableDataSource<Usuario>( response.items );
+    });
   }
 
 }

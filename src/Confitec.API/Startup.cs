@@ -26,8 +26,20 @@ namespace Confitec.API
 
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "CorsPolicy";
+
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options => {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    builder => {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             var connectionString = Configuration.GetConnectionString("DbConnection");
             services.AddDbContext<ConfitecContext>(options => options.UseSqlServer(connectionString));
 
@@ -66,6 +78,8 @@ namespace Confitec.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {
