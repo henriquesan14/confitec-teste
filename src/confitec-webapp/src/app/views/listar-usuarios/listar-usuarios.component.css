@@ -1,0 +1,26 @@
+table {
+    flex: 1;
+    width: 100%;
+    margin-top: 16px;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 19px;
+}
+
+.icon-delete {
+    cursor: pointer;
+    color: rgb(240, 123, 123);
+}
+.icon-delete:hover {
+    color: rgb(241, 11, 11);
+}
+
+.icon-edit {
+    cursor: pointer;
+    color: rgb(133, 133, 231);
+}
+
+.icon-edit:hover {
+    color: rgb(69, 69, 248);
+}
