@@ -28,7 +28,7 @@ namespace Confitec.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(User);
+            return Ok(user);
         }
 
         [HttpPost]

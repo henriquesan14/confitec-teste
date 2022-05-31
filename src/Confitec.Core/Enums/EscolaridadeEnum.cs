@@ -1,7 +1,16 @@
-﻿namespace Confitec.Core.Enums
+﻿using System.ComponentModel;
+
+namespace Confitec.Core.Enums
 {
     public enum EscolaridadeEnum
     {
-        INFANTIL, FUNDAMENTAL, MEDIO, SUPERIOR
+        [Description("Infantil")]
+        INFANTIL,
+        [Description("Fundamental")]
+        FUNDAMENTAL,
+        [Description("Medio")]
+        MEDIO,
+        [Description("Superior")]
+        SUPERIOR
     }
 }

@@ -26,7 +26,7 @@ namespace Confitec.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("ConfitecDb");
+            var connectionString = Configuration.GetConnectionString("DbConnection");
             services.AddDbContext<ConfitecContext>(options => options.UseSqlServer(connectionString));
 
             services.AddInfrastructure();
@@ -40,6 +40,8 @@ namespace Confitec.API
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CadastrarUsuarioCommandValidator>());
 
             services.AddMediatR(typeof(CadastrarUsuarioCommand));
+
+            services.JsonSerializationConfig();
 
         }
 
