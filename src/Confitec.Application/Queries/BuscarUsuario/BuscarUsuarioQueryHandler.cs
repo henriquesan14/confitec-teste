@@ -19,7 +19,7 @@ namespace Confitec.Application.Queries.BuscarUsuario
 
         public async Task<UsuarioViewModel> Handle(BuscarUsuarioQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.ObterPorId(request.Id);
+            var user = await _userRepository.BuscarPorIdAsync(request.Id);
 
             if (user == null)
             {

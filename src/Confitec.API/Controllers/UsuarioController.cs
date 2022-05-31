@@ -1,4 +1,5 @@
-﻿using Confitec.Application.Commands.CadastrarUsuario;
+﻿using Confitec.Application.Commands.AtualizarUsuario;
+using Confitec.Application.Commands.CadastrarUsuario;
 using Confitec.Application.Queries.BuscarUsuario;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,20 @@ namespace Confitec.API.Controllers
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(BuscarPorId), new { id = 1 }, command);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] AtualizarUsuarioCommand command)
+        {
+            var query = new BuscarUsuarioQuery(command.Id);
+            var user = await _mediator.Send(query);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            await _mediator.Send(command);
+            return Ok(command);
         }
     }
 }

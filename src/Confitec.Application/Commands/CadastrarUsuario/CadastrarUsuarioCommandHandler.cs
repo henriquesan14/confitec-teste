@@ -19,7 +19,7 @@ namespace Confitec.Application.Commands.CadastrarUsuario
         public async Task<int> Handle(CadastrarUsuarioCommand request, CancellationToken cancellationToken)
         {
             var user = new Usuario(request.Nome, request.Sobrenome, request.Email, request.DataNascimento, request.Escolaridade);
-            await _repository.Adicionar(user);
+            await _repository.AdicionarAsync(user);
             return user.Id;
         }
     }

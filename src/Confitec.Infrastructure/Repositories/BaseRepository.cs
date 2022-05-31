@@ -1,4 +1,4 @@
-﻿using Confitec.Core.Entities;
+﻿using Confitec.Core.Entities.Base;
 using Confitec.Core.Repositories;
 using Confitec.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Confitec.Infrastructure.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : Entity
     {
         private readonly ConfitecContext _context;
         private readonly DbSet<TEntity> _entity;
@@ -21,43 +21,58 @@ namespace Confitec.Infrastructure.Repositories
             _entity = context.Set<TEntity>();
         }
 
-        public virtual async Task Adicionar(TEntity entity)
+        public async Task<IReadOnlyList<TEntity>> BuscarTodosAsync()
         {
-            await _entity.AddAsync(entity);
-            await SaveChanges();
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public virtual async Task Atualizar(TEntity entity)
+        public async Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            _entity.Update(entity);
-            await SaveChanges();
+            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+
+        public async Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate = null,
+                                    Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                                    string includeString = null,
+                                    bool disableTracking = true)
         {
-            return await _entity.AsNoTracking().Where(predicate).ToListAsync();
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            if (disableTracking) query = query.AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(includeString)) query = query.Include(includeString);
+
+            if (predicate != null) query = query.Where(predicate);
+
+            if (orderBy != null)
+                return await orderBy(query).ToListAsync();
+            return await query.ToListAsync();
         }
 
-        public virtual async Task<TEntity> ObterPorId(int id)
+        public virtual async Task<TEntity> BuscarPorIdAsync(int id)
         {
-            return await _entity.FindAsync(id);
+            return await _context.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public virtual async Task<List<TEntity>> ObterTodos()
+        public async Task<TEntity> AdicionarAsync(TEntity entity)
         {
-            return await _entity.ToListAsync();
+            entity.CriadoEm = DateTime.Now;
+            _context.Set<TEntity>().Add(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public virtual async Task Remover(int id)
+        public async Task AtualizarAsync(TEntity entity)
         {
-            var entity = await ObterPorId(id);
-            _entity.Remove(entity);
-            await SaveChanges();
+            entity.AtualizadoEm = DateTime.Now;
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<int> SaveChanges()
+        public async Task RemoverAsync(TEntity entity)
         {
-            return await _context.SaveChangesAsync();
+            _context.Set<TEntity>().Remove(entity);
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose()

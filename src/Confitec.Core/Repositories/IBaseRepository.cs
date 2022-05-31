@@ -1,19 +1,24 @@
-﻿using Confitec.Core.Entities;
+﻿using Confitec.Core.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Confitec.Core.Repositories
 {
-    public interface IBaseRepository<TEntity> : IDisposable where TEntity : BaseEntity
+    public interface IBaseRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        Task Adicionar(TEntity entity);
-        Task<TEntity> ObterPorId(int id);
-        Task<List<TEntity>> ObterTodos();
-        Task Atualizar(TEntity entity);
-        Task Remover(int id);
-        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
-        Task<int> SaveChanges();
+
+        Task<IReadOnlyList<TEntity>> BuscarTodosAsync();
+        Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IReadOnlyList<TEntity>> BuscarAsync(Expression<Func<TEntity, bool>> predicate = null,
+                                        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                                        string includeString = null,
+                                        bool disableTracking = true);
+        Task<TEntity> BuscarPorIdAsync(int id);
+        Task<TEntity> AdicionarAsync(TEntity entity);
+        Task AtualizarAsync(TEntity entity);
+        Task RemoverAsync(TEntity entity);
     }
 }
