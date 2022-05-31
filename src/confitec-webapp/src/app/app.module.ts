@@ -14,7 +14,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatNativeDateModule } from '@angular/material/core';
-import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { ListarUsuariosComponent } from './views/listar-usuarios/listar-usuarios
 import { FormUsuarioComponent } from './components/form-usuario/form-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { CadastroUsuarioComponent } from './views/cadastro-usuario/cadastro-usuario.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { CadastroUsuarioComponent } from './views/cadastro-usuario/cadastro-usua
     ListarUsuariosComponent,
     FormUsuarioComponent,
     CadastroUsuarioComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     FormsModule,
@@ -48,7 +51,8 @@ import { CadastroUsuarioComponent } from './views/cadastro-usuario/cadastro-usua
     MatInputModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }

@@ -16,7 +16,16 @@ export class UsuarioService {
     list(): Observable<Usuario[]> {
         return this.http.get<Usuario[]>(`${this.baseUrl}/Usuario`);
     }
-    create(funcionario: Usuario): Observable<Usuario> {
-        return this.http.post<Usuario>(`${this.baseUrl}/Usuario`, funcionario);
+    getById(id: number): Observable<Usuario> {
+        return this.http.get<Usuario>(`${this.baseUrl}/Usuario/${id}`);
+    }
+    create(usuario: Usuario): Observable<Usuario> {
+        return this.http.post<Usuario>(`${this.baseUrl}/Usuario`, usuario);
+    }
+    delete(id: number) {
+      return this.http.delete(`${this.baseUrl}/Usuario/${id}`);
+    }
+    update(usuario: Usuario) {
+      return this.http.put(`${this.baseUrl}/Usuario`, usuario);
     }
 }

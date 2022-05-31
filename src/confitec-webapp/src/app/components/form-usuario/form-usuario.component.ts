@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-form-usuario',
@@ -8,12 +8,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./form-usuario.component.css']
 })
 export class FormUsuarioComponent {
-  nome!: string;
-  sobrenome!: string;
-  email!: string;
-  dataNascimento!: Date;
-  escolaridade!: string;
-
+  
   @Input() usuario: Usuario = <Usuario>{};
   @Output() outputUsuario: EventEmitter<Usuario> = new EventEmitter();
   
@@ -22,11 +17,15 @@ export class FormUsuarioComponent {
   ];
 
     constructor(
-        private funcionarioService: UsuarioService
+      private location: Location
     ) {}
 
     onSubmit() {
       this.outputUsuario.emit(this.usuario);
+    }
+
+    back(){
+      this.location.back();
     }
 
 }
