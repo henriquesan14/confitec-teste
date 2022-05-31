@@ -12,7 +12,7 @@ namespace Confitec.Application.Validators
                 .NotEmpty()
                 .WithMessage("O campo Nome é obrigatório");
 
-            RuleFor(p => p.Nome)
+            RuleFor(p => p.Sobrenome)
                 .NotEmpty()
                 .WithMessage("O campo Sobrenome é obrigatório");
 
@@ -37,7 +37,7 @@ namespace Confitec.Application.Validators
 
         public bool DataNascimentoValida(DateTime dataNascimento)
         {
-            return dataNascimento.CompareTo(DateTime.Now.Date) < 0;
+            return dataNascimento.Date.CompareTo(DateTime.Now.Date) < 0;
         }
     }
 }

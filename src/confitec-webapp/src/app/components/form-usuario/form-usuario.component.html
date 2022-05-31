@@ -1,39 +1,56 @@
-<mat-card-content>
-    <mat-form-field class="input" id="nome">
-        <mat-label for="nome">Nome:</mat-label>
-        <input matInput type="text" name="nome" [(ngModel)]="usuario.nome" />
-    </mat-form-field>
-    <mat-form-field class="input" id="sobrenome">
-        <mat-label for="sobrenome">Sobrenome:</mat-label>
-        <input matInput type="text" name="sobrenome" [(ngModel)]="usuario.sobrenome" />
-    </mat-form-field>
-</mat-card-content>
-<mat-card-content>
-    <mat-form-field class="input" id="email">
-        <mat-label for="email">Email:</mat-label>
-        <input matInput type="email" name="email" [(ngModel)]="usuario.email" />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label for="dataNascimento">Data de Nascimento:</mat-label>
-        <input [(ngModel)]="usuario.dataNascimento" matInput [matDatepicker]="datepicker">
-        <mat-hint>DD/MM/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-        <mat-datepicker #datepicker></mat-datepicker>
-    </mat-form-field>
-</mat-card-content>
-<mat-card-content>
-    <mat-form-field class="input" id="escolaridade">
-        <mat-label for="escolaridade">Escolaridade:</mat-label>
-        <mat-select [(ngModel)]="usuario.escolaridade">
-            <mat-option *ngFor="let escolaridade of escolaridades" [value]="escolaridade">
-                {{escolaridade}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</mat-card-content>
-<button class="btn-cadastrar" mat-raised-button color="primary" (click)="onSubmit()">
-    {{usuario.id ? 'Atualizar' : 'Cadastrar'}}
-</button>
-<button (click)="back()" mat-raised-button>
-    Voltar
-</button>
+  <form #f="ngForm" (ngSubmit)="onSubmit()" >
+    <mat-card-content>
+        <mat-form-field class="input" id="nome">
+            <mat-label for="nome">Nome:</mat-label>
+            <input required matInput type="text" #nome="ngModel" name="nome" [(ngModel)]="usuario.nome" />
+            <mat-error *ngIf="!nome.valid && nome.touched">
+                Nome é <strong>obrigatório</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input" id="sobrenome">
+            <mat-label for="sobrenome">Sobrenome:</mat-label>
+            <input required matInput type="text" #sobrenome="ngModel" name="sobrenome" [(ngModel)]="usuario.sobrenome" />
+            <mat-error *ngIf="!sobrenome.valid && sobrenome.touched">
+                Sobrenome é <strong>obrigatório</strong>
+            </mat-error>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-form-field class="input" id="email">
+            <mat-label for="email">Email:</mat-label>
+            <input required email matInput type="email" #email="ngModel" name="email" [(ngModel)]="usuario.email" />
+            <mat-error *ngIf="!email.valid && email.touched">
+                Email é <strong>obrigatório</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label for="dataNascimento">Data de Nascimento:</mat-label>
+            <input required [(ngModel)]="usuario.dataNascimento" #dataNascimento="ngModel" name="dataNascimento" matInput [matDatepicker]="datepicker">
+            <mat-error *ngIf="!dataNascimento.valid && dataNascimento.touched">
+                Data de Nascimento é <strong>obrigatório</strong>
+            </mat-error>
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-form-field class="input" id="escolaridade">
+            <mat-label for="escolaridade">Escolaridade:</mat-label>
+            <mat-select name="escolaridade" #escolaridade="ngModel" required [(ngModel)]="usuario.escolaridade">
+                <mat-option *ngFor="let escolaridade of escolaridades" [value]="escolaridade">
+                    {{escolaridade}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!escolaridade.valid && escolaridade.touched">
+                Escolaridade é <strong>obrigatório</strong>
+            </mat-error>
+        </mat-form-field>
+    </mat-card-content>
+    <button type="submit" [disabled]="!f.valid" class="btn-cadastrar" mat-raised-button color="primary" >
+        {{usuario.id ? 'Atualizar' : 'Cadastrar'}}
+    </button>
+    <button (click)="back()" mat-raised-button>
+        Voltar
+    </button>
+</form>  
