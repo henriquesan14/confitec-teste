@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Core", "Confitec.Core\Confitec.Core.csproj", "{7513BDBE-7F4C-4B0C-B6BC-30C0851031B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Core", "Confitec.Core\Confitec.Core.csproj", "{7513BDBE-7F4C-4B0C-B6BC-30C0851031B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Infrastructure", "Confitec.Infrastructure\Confitec.Infrastructure.csproj", "{5FACEB05-5E76-4CCD-9616-31B98648209C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Infrastructure", "Confitec.Infrastructure\Confitec.Infrastructure.csproj", "{5FACEB05-5E76-4CCD-9616-31B98648209C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Application", "Confitec.Application\Confitec.Application.csproj", "{FCA2A309-5696-470F-B2BA-631E2E922A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Application", "Confitec.Application\Confitec.Application.csproj", "{FCA2A309-5696-470F-B2BA-631E2E922A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.API", "Confitec.API\Confitec.API.csproj", "{1BCBCB11-A89F-4BFD-A135-2CA114F9FAF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.API", "Confitec.API\Confitec.API.csproj", "{1BCBCB11-A89F-4BFD-A135-2CA114F9FAF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.UnitTests", "Confitec.UnitTests\Confitec.UnitTests.csproj", "{E5B20270-FCB9-41F5-9B92-F52071B084D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1BCBCB11-A89F-4BFD-A135-2CA114F9FAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCBCB11-A89F-4BFD-A135-2CA114F9FAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCBCB11-A89F-4BFD-A135-2CA114F9FAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B20270-FCB9-41F5-9B92-F52071B084D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B20270-FCB9-41F5-9B92-F52071B084D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B20270-FCB9-41F5-9B92-F52071B084D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B20270-FCB9-41F5-9B92-F52071B084D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
